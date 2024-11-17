@@ -7,10 +7,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+import tensorflow as tf
+
+# Enable Metal GPU acceleration
+tf.config.experimental.set_visible_devices(
+    tf.config.list_physical_devices('GPU'), 'GPU'
+)
+
 
 #   importing training set
-dataset_train =pd.read_csv('Recurrent_Neural_Network(RNN)_Introduction/Google_Stock_Price_Train.csv')
-training_set = dataset_train.iloc[:,1:2].values    # : takes all the rows and 1:2 takes the second column only, 2 is excluded, 1 is 'Open' Price
+dataset_train =pd.read_csv('Google_Stock_Price_Train.csv')
+training_set = dataset_train.iloc[:,1:2].values    # : takes all the rows and 1:2 takes the second column only, 2 is excluded, 1  is the column index which is open price
 
 
 #   Feature scaling
@@ -47,10 +54,9 @@ X_train = np.reshape(X_train, (X_train.shape[0],X_train.shape[1],1))
 #   Part 2 - Building the RNN
 
 # Importing the Keras libraries and packages
-from keras.models import Sequential #to initialize the neural network 
-from keras.layers import Dense #to add the output layer 
-from keras.layers import LSTM #to add the LSTM layers 
-from keras.layers import Dropout #to add the dropout regularization
+# Use these instead
+from keras.models import Sequential
+from keras.layers import Dense, LSTM, Dropout
 
 # Initializing the RNN
 
@@ -109,7 +115,7 @@ regressor.fit(X_train, y_train, epochs = 100, batch_size = 32)
 
 # Getting the real stock price of 2017
 
-dataset_test =pd.read_csv('Recurrent_Neural_Network(RNN)_Introduction/Google_Stock_Price_Test.csv')
+dataset_test =pd.read_csv('Google_Stock_Price_Test.csv')
 real_stock_price= dataset_test.iloc[:,1:2].values    # : takes all the rows and 1:2 takes the second column only, 2 is excluded
 
 

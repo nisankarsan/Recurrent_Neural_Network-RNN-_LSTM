@@ -76,11 +76,13 @@ plt.plot(predicted_stock_price, color='blue', label='Predicted Google Stock Pric
 plt.show()
 ```
 
+![alt text](Figure_1.png)
+
 ## Model Parameters
 
 - LSTM Units: 50 per layer
 - Dropout Rate: 0.2
-- Batch Size: 32
+- Batch Size: 32s
 - Epochs: 100
 
 ## Notes
