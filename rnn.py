@@ -55,9 +55,9 @@ X_train = np.reshape(X_train, (X_train.shape[0],X_train.shape[1],1))
 
 # Importing the Keras libraries and packages
 # Use these instead
-from keras.models import Sequential
-from keras.layers import Dense, LSTM, Dropout
-
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, LSTM, Dropout
 # Initializing the RNN
 
 regressor = Sequential()
